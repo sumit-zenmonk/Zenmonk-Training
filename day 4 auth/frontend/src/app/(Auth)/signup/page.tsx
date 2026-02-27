@@ -72,7 +72,7 @@ export default function SignupForm() {
             } else {
                 sessionStorage.setItem('token', response.access_token);
             }
-            Cookies.set("token", JSON.stringify(response.access_token));
+            Cookies.set("token", JSON.stringify(response.access_token), { expires: 1, path: '/' });
             router.replace('/');
         } else {
             const errorMsg = Array.isArray(response?.message) ? response.message[0] : (response?.message || 'Something Went Wrong');
@@ -83,8 +83,8 @@ export default function SignupForm() {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="form">
             <Box className="heading-section">
-                <Typography variant="h4" className=".title">Register Your Account</Typography>
-                <Typography className=".description">Let's Build Something Together</Typography>
+                <Typography variant="h4" className="title">Register Your Account</Typography>
+                <Typography className="description">Let's Build Something Together</Typography>
             </Box>
 
             <Box className="body-section">
