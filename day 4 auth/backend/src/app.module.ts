@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RegisterModule } from './features/Auth/register/register.module';
@@ -15,6 +15,7 @@ import { AllActiveUserModule } from './features/users/active-users-list/active-u
 import { AllActiveUserController } from './features/users/active-users-list/active-user.controller';
 import { DeactivateUserModule } from './features/users/deactivate user/deactive.user.module';
 import { FetchByUsernameModule } from './features/users/fetch-by-username/fetch-by-username.module';
+import { FetchByTokenModule } from './features/users/fetch-by-token/fetch-by-token.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { FetchByUsernameModule } from './features/users/fetch-by-username/fetch-
     AllActiveUserModule,
     DeactivateUserModule,
     FetchByUsernameModule,
+    FetchByTokenModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthService, BcryptService, UserRepository],
@@ -48,6 +50,10 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthenticateMiddleware)
-      .forRoutes(AllActiveUserController)
+      .exclude(
+        { path: 'login', method: RequestMethod.ALL },
+        { path: 'register', method: RequestMethod.ALL },
+      )
+      .forRoutes('*');
   }
 }

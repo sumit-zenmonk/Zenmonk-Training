@@ -17,6 +17,7 @@ export class AuthService {
     }
 
     async verifyJwtToken(token: string) {
+        token = token.replace(/^"(.*)"$/, '$1');
         return await this.jwtService.verifyAsync(token);
     }
 }
