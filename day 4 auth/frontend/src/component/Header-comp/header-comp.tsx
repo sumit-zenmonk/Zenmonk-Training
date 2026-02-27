@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import './header-comp.css'
-import { Button } from "@mui/material"
+import { Box, Button } from "@mui/material"
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
@@ -21,7 +21,10 @@ export default function HeaderComp() {
 
     return (
         <header className="header">
-            <Image src="/web-logo.png" width={53} height={36} alt="web Logo" />
+            <Box className="left-container">
+                <Image src="/web-logo.png" width={53} height={36} alt="web Logo" />
+                <p>Auth Security Verification</p>
+            </Box>
             <Button
                 type="submit"
                 variant="contained"

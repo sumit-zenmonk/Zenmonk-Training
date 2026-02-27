@@ -52,3 +52,8 @@ a:hover {
   color: yellow;
   accent-color: yellow;
 }
+
+button:hover,
+img:hover {
+  cursor: pointer;
+}

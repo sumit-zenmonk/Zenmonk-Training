@@ -14,3 +14,18 @@
     margin-top: .5%;
     margin-bottom: 2%;
 }
+
+.header>.left-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.header>.left-container>p {
+    color: rgb(0, 119, 255);
+    background: linear-gradient(to right, #f5fcff, #7ad7f0, #f5fcff);
+    padding: 1%;
+    border-radius: 50px;
+}
