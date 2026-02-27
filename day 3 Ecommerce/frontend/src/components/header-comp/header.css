@@ -38,7 +38,7 @@
     position: relative;
 }
 
-.left-container>.menu-bar>p>p {
+.left-container>.menu-bar>p>b {
     font-size: small;
     color: red;
     position: absolute;
