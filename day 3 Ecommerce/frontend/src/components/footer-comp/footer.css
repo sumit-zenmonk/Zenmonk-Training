@@ -19,6 +19,14 @@
     font-weight: 700;
 }
 
+.footer>div>.img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 footer>div {
     display: flex;
     justify-content: space-around;
