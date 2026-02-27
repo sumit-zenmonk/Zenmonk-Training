@@ -18,7 +18,7 @@ form>.heading-section {
     display: flex;
     flex-direction: column;
     gap: 2%;
-    box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px 1px rgb(255, 255, 255);
     border-radius: 500px;
     padding: 4% 10%;
     text-align: center;
